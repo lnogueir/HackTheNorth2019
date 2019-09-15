@@ -6,7 +6,7 @@ Note: ssml must be well-formed according to:
 from google.cloud import texttospeech
 import os
 
-def create_speech_file(inputText, lang_code = 'en-US'):
+def create_speech_file(inputText, lang_code = 'en'):
     # Instantiates a client
     client = texttospeech.TextToSpeechClient()
     # Set the text input to be synthesized

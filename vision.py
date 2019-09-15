@@ -21,6 +21,5 @@ def jpg_to_text(file_path):
     # Performs label detection on the image file
     response = client.label_detection(image=image)
     labels = response.label_annotations
-    print(labels[0].description)
 
     return labels[0].description
