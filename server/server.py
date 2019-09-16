@@ -69,5 +69,6 @@ def get_languages():
 
 
 if __name__ == '__main__':
-    app.run(host='10.31.228.87')
+    host = '192.168.0.20'
+    app.run(host=host)
 

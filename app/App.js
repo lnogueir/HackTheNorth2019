@@ -7,7 +7,7 @@ import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { systemWeights } from 'react-native-typography'
 
-const SERGIO_URL = 'http://10.31.228.87:5000/'
+const SERGIO_URL = 'http://192.168.0.20.:5000/'
 
 export default class HTN_app extends React.Component {
   constructor(props){
