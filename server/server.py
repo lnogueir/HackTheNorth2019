@@ -5,6 +5,7 @@ import messages
 import io
 import base64
 import flask
+import os
 from flask import Flask, send_file, request, jsonify
 
 
@@ -29,17 +30,11 @@ def translate_image():
     g = open(image_name, "wb")
     g.write(binary_img)
     g.close()
-
-    # f = open(image_name, 'rb')
-    # image_binary = f.read()
-    # f.close()
     default_text = jpg_to_text('image.jpg')
+    os.remove('image.jpg')
     translated_text = translate_text(default_text, lang)
     print(translated_text)
-    # file_name = create_speech_file(translated_text)
-    # response = send_file(
-    #     file_name, mimetype='audio/mpeg',
-    # )
+    
 
     return jsonify({'word': translated_text})
     # return send_file(io.BytesIO(image_binary), mimetype='image/jpeg')
@@ -55,7 +50,7 @@ def text_to_speech():
     response = send_file(
         file_name, mimetype='audio/mpeg',
     )
-
+    os.remove(file_name)
     return response
 
 @app.route ('/get_languages', methods=['GET'])
