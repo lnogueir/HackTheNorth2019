@@ -15,6 +15,6 @@ The app is built using the javascript framework for mobile apps, react-native. W
 * Google Apis
 
 ## Authors
-* **Lucas Nogueira**
-* **Sergio Sanchez**
+* [**Lucas Nogueira**](https://github.com/lnogueir)
+* [**Sergio Sanchez**](https://github.com/SergioSanchez12)
 
