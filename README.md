@@ -1,5 +1,5 @@
 # Senses
-For Hack the North 2019 we created a mobile app that lets you take a photo and receive a quick audio and text response of the content of the photo in the language of your choice.
+For Hack the North 2019 we created a mobile app that lets you take a photo and receive a quick audio and text response of the content of the photo in the language of your choice. Watch it working: https://www.youtube.com/watch?v=sIyQeOB-pRg
 
 We wanted to give people a new way to learn languages. Since we both come from international families, we believed in something that would help new people in a foreign country.
 
