@@ -7,12 +7,11 @@ import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { systemWeights } from 'react-native-typography'
 
-const SERGIO_URL = 'http://10.31.228.87:5000/'
+const SERGIO_URL = 'http://192.168.0.20.:5000'
 
 export default class HTN_app extends React.Component {
   constructor(props){
     super(props);
-      this.what=['1','2','3','4']
       this.languages=[];
       this.state = {
         hasCameraPermission: null,
@@ -34,23 +33,21 @@ export default class HTN_app extends React.Component {
     const { status } = await Permissions.askAsync(Permissions.CAMERA);
     this.get_languages()
     this.setState({ hasCameraPermission: status === 'granted' });
-    this.speak();
+    this.speak('','home');
 
   }
 
-  speak = async (endpoint='') => {
-      // var param = '?language'+this.state.word:this.state.word!=null:'' ;
+  speak = async (endpoint='', message='') => {
+      var param = message!=''?'?message='+message:'';
       if(this.state.word == null){
         const { sound: soundObject, status } = await Audio.Sound.createAsync(
-          {uri:SERGIO_URL, headers:{'Cache-Control':'no-cache'}},
+          {uri:SERGIO_URL+param, headers:{'Cache-Control':'no-cache'}},
           { shouldPlay: true });
       }else{
         const { sound: soundObject, status } = await Audio.Sound.createAsync(
           {uri:SERGIO_URL+endpoint+'?prediction='+this.state.word+'&language='+this.state.selected_language, headers:{'Cache-Control':'no-cache'}},
           { shouldPlay: true });
       }
-
-
   }
 
   snap = async () => {
@@ -61,13 +58,14 @@ export default class HTN_app extends React.Component {
             photo64: data.base64,
             photo: data.uri
         }, console.log(data.uri))
+         this.speak('','photo_screen') 
         })
       }
   };
 
 
   get_languages = async() => {
-      let req_url = SERGIO_URL + 'get_languages'
+      let req_url = SERGIO_URL + '/get_languages'
       try{
         fetch(req_url)
         .then((response) => response.json())
@@ -93,11 +91,11 @@ export default class HTN_app extends React.Component {
       body:data_json
       }
     try{
-       fetch(req_url, req_info)
+      fetch(req_url, req_info)
       .then((response)=>response.json())
       .then((response)=>{
         this.setState({word:response.word.replace(' ', '%20'), is_loading:false})
-        this.speak('image_speak');
+        this.speak('/image_speak');
       })
     }catch(error){
       console.log(error)
@@ -118,7 +116,7 @@ export default class HTN_app extends React.Component {
           />
           <Button type='outline' style={{margin:50}} title='Check it out' onPress={() => {
             this.setState({is_loading:true,is_result_page:true, photo_mode:false})
-            this.send_photo('image_write', {"image_base64":this.state.photo64, 'language':this.state.selected_language});
+            this.send_photo('/image_write', {"image_base64":this.state.photo64, 'language':this.state.selected_language});
           }}/>
         </View>
       );
@@ -241,7 +239,7 @@ export default class HTN_app extends React.Component {
         <View style={{flex:1, padding: 20,alignItems:'center', justifyContent:'center'}}>
           <Text style={[systemWeights.thin,{fontSize:30, marginVertical:20}]}>The photo you took is saying:</Text>
           <Text style={[systemWeights.bold,{fontSize:20}]}>{this.state.word.replace('%20', ' ')}!</Text>
-          <Button icon={<Icon name='home' color='white' size={30}/>} buttonStyle={{marginTop:50, backgroundColor: '#1968e8'}} title='Back to home' onPress={()=>{this.setState({is_result_page:false, home_mode:true})}}/>
+          <Button icon={<Icon name='home' color='white' size={30}/>} buttonStyle={{marginTop:50, backgroundColor: '#1968e8'}} title='Back to home' onPress={()=>{this.setState({word: null,is_result_page:false, home_mode:true})}}/>
         </View>
     )
     }
