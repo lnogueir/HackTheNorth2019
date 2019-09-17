@@ -1,7 +1,7 @@
 from speech import create_speech_file
 from translate import translate_text, language_list
 from vision import jpg_to_text
-import messages
+from messages import messages
 import io
 import base64
 import flask
@@ -12,8 +12,11 @@ from flask import Flask, send_file, request, jsonify
 app = Flask(__name__)
 
 @app.route('/')
-def get_home_speech():
-    file_name = create_speech_file(messages.home)
+def get_speech():
+    message_type = request.args.get('message')
+    print(message_type)
+    print(message_type)
+    file_name = create_speech_file(messages[message_type])
     response = send_file(
         file_name, mimetype='audio/mpeg',
     )
@@ -37,11 +40,9 @@ def translate_image():
     
 
     return jsonify({'word': translated_text})
-    # return send_file(io.BytesIO(image_binary), mimetype='image/jpeg')
 
 @app.route ('/image_speak', methods=['GET'])
 def text_to_speech():
-    # language = request.args.get('language')
     prediction = request.args.get('prediction')
     lang = request.args.get('language')
     print(lang)
@@ -57,8 +58,6 @@ def text_to_speech():
 def get_languages():
     lang_list = language_list()
     return jsonify({'languages':lang_list})
-
-
 
 
 
