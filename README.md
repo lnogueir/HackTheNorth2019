@@ -7,7 +7,7 @@ For Hack the North 2019 we created a mobile app that lets you take a photo and r
 
 Notes:
 It is assumed that you have node, git, npm, python and pip installed on your machine.
-Besides that, this app uses Expo Client, therefore in order to run it, you will need to have the Expo App downloaded on your phone and expo command on your machine. 
+Besides that, this app uses Expo Client, therefore in order to run it, you will need to have the Expo App downloaded on your phone. 
 It is also required that the phone which you will run the app on and the computer which you are running the app from are under the same network.
 
 ### Steps
