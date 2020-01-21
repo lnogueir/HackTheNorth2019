@@ -13,23 +13,22 @@ It is also required that the phone which you will run the app on and the compute
 ### Steps
 
 1. git clone https://github.com/lnogueir/HackTheNorth2019.git
-2. Open two terminal windows and cd into HackTheNorth2019
-3. Follow the server and app setup
+2. python setup_ip.py (this step is required because the phone can't access the endpoints with localhost as the host)
+3. Open two terminal windows and cd into HackTheNorth2019
+4. Follow the server and app setup
 
 #### Server Setup
 On the first terminal window, assuming you are under HackTheNorth2019 directory:
 1. cd server
 2. pip install -r requirements.txt
-3. Open server.py on line 12 edit variable "host" to your computer ip (unfortunately, the phone can't access the endpoints with localhost as the host)
-4. python server.py
+3. python server.py
 
 #### App Setup
 On the other terminal window, assuming you are under HackTheNorth2019 directory:
 1. cd app
 2. sudo npm install
-3. Open App.js and on line 10 edit "USER_IP" variable to your computer ip. 
-4. npm start
-5. Scan QR Code displayed on terminal window
+3. npm start
+4. Scan QR Code displayed on terminal window
 
 The app should be now running on your phone.
 
