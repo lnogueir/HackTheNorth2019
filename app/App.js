@@ -6,8 +6,7 @@ import { Audio } from 'expo-av';
 import { Button } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import { systemWeights } from 'react-native-typography'
-
-const USER_IP = '192.168.2.34' // enter your computer ip here!
+import { USER_IP } from 'react-native-dotenv'
 
 const SERVER_ADDRESS = `http://${USER_IP}:5000`
 

@@ -7,11 +7,10 @@ import base64
 import flask
 import os
 from flask import Flask, send_file, request, jsonify
-
-
-host = '192.168.2.34' # enter your computer IP here!
+from env import USER_IP
 
 app = Flask(__name__)
+
 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = 'senses_api_key.json'
 
@@ -67,4 +66,4 @@ def get_languages():
 
 
 if __name__ == '__main__':
-    app.run(host=host)
+    app.run(host=USER_IP)
