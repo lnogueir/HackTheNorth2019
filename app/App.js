@@ -58,7 +58,9 @@ export default class HTN_app extends React.Component {
         .then((data) => {
           this.setState({
             photo64: data.base64,
-            photo: data.uri
+            photo: data.uri,
+            camera_mode: false,
+            photo_mode: true
           }, console.log(data.uri))
           this.speak('', 'photo_screen')
         })
@@ -211,7 +213,6 @@ export default class HTN_app extends React.Component {
                 }
                 buttonStyle={{ backgroundColor: 'gray' }}
                 onPress={() => {
-                  this.setState({ camera_mode: false, photo_mode: true })
                   this.snap()
                 }}
               />
