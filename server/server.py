@@ -9,7 +9,11 @@ import os
 from flask import Flask, send_file, request, jsonify
 
 
+host = '192.168.2.34' # enter your computer IP here!
+
 app = Flask(__name__)
+
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = 'senses_api_key.json'
 
 @app.route('/')
 def get_speech():
@@ -63,6 +67,4 @@ def get_languages():
 
 
 if __name__ == '__main__':
-    host = '192.168.0.20'
     app.run(host=host)
-
