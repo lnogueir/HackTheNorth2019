@@ -15,15 +15,14 @@ if __name__ == '__main__':
 		user_ip = socket.gethostbyname(hostname) 
 	except:
 		user_ip = input('Enter your computer IP: ')
+		if not isValidIp(user_ip):
+			raise InvalidIpProvided("IP addess provided is not in the correct format or it's not an IP address.")		
 	finally:
-		if isValidIp(user_ip):
-			py_dotenv = open('server/env.py', 'w')
-			py_dotenv.write(f'USER_IP="{user_ip}"')	
-			py_dotenv.close()
-			js_dotenv = open('app/.env', 'w')
-			js_dotenv.write(f'USER_IP={user_ip}')
-			js_dotenv.close()
-		else:
-			raise InvalidIpProvided("IP addess provided is not in the correct format or it's not an IP address.")	
+		py_dotenv = open('server/env.py', 'w')
+		py_dotenv.write(f'USER_IP="{user_ip}"')	
+		py_dotenv.close()
+		js_dotenv = open('app/.env', 'w')
+		js_dotenv.write(f'USER_IP={user_ip}')
+		js_dotenv.close()
 
 
