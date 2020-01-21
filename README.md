@@ -1,5 +1,5 @@
 # Senses
-For Hack the North 2019 we created a mobile app that lets you take a photo and receive a quick audio and text response of the content of the photo in the language of your choice. View more about it on: [Youtube](https://www.youtube.com/watch?v=sIyQeOB-pRg&feature=youtu.be&t=64) and on [Devpost.](https://devpost.com/software/senses-ps5gwm)
+For Hack the North 2019, in under 24 hours, we created a mobile app that lets you take a photo and receive a quick audio and text response of the content of the photo in the language of your choice. View more about it on: [Youtube](https://www.youtube.com/watch?v=sIyQeOB-pRg&feature=youtu.be&t=64) and on [Devpost.](https://devpost.com/software/senses-ps5gwm)
 
 ![Senses main page](https://github.com/lnogueir/HackTheNorth2019/blob/master/app/assets/senses_main_screen.jpeg)
 
