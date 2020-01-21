@@ -4,7 +4,6 @@ from vision import jpg_to_text
 from messages import messages
 import io
 import base64
-import flask
 import os
 from flask import Flask, send_file, request, jsonify
 from env import USER_IP
