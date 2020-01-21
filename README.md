@@ -13,9 +13,9 @@ It is also required that the phone which you will run the app on and the compute
 ### Steps
 
 1. git clone https://github.com/lnogueir/HackTheNorth2019.git
-2. python setup_ip.py (this step is required because the phone can't access the endpoints with localhost as the host)
-3. Open two terminal windows and cd into HackTheNorth2019
-4. Follow the server and app setup
+2. cd HackTheNorth2019
+3. python setup_ip.py (this step is required because the phone can't access the endpoints with localhost as the host)
+4. Open two terminal windows -> cd into HackTheNorth2019 -> follow server and app setup
 
 #### Server Setup
 On the first terminal window, assuming you are under HackTheNorth2019 directory:
